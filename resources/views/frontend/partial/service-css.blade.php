@@ -7,8 +7,8 @@
             border-radius: 5px;
             background: rgba(59, 63, 66, 0.7);
             transition: all 0.30s ease 0s;
-            height: 230px;
-            width:230px;
+            height: 200px;
+            width:200px;
             border-radius: 50% !important;
         }
 
@@ -37,7 +37,7 @@
 
         .service_box h3 {
             position: relative;
-            top: 40px;
+            top: 0px;
             margin: 0;
             color: #fff;
             font-size: 14px;

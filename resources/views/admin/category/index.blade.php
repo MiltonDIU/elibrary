@@ -42,11 +42,8 @@
                                         @endif
                                     </td>
                                     <td>
-                                        @if($item->serial==1)
-                                          1
-                                        @else
-                                            0
-                                        @endif
+                                        {{$item->serial}}
+
                                     </td>
                                     <td>
                                         <a href="{{ url('/admin/category/' . $item->id) }}" title="View Category">
