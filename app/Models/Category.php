@@ -8,7 +8,7 @@ class Category extends Model
 {
     protected $table = "categories";
     protected $fillable = [
-        'itemCategory', 'image', 'itemCategoryShort', 'shortDescription', 'accessibilityWithoutAuthentication', 'externalUrl', 'isVisible'
+        'itemCategory', 'image', 'itemCategoryShort', 'shortDescription', 'accessibilityWithoutAuthentication', 'externalUrl', 'isVisible','serial'
     ];
 
     public function item()

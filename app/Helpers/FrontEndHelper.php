@@ -170,24 +170,24 @@ $i=0;
 
     public static function services()
     {
-        $services = Category::where('isVisible', '1')->get();
+        $services = Category::where('isVisible', '1')->orderBy('serial','ASC')->get();
         $service1 = $services->count();
         $service = $services->count();
         $result = "<div class='row'>";
         foreach ($services as $item) {
 
             
-            if ($service1 % 3 == 0) {
-                $col = 4;
-            } elseif ($service1 % 3 == 1) {
-                if ($service > 4) {
-                    $col = 4;
+            if ($service1 % 4 == 0) {
+                $col = 3;
+            } elseif ($service1 % 4 == 1) {
+                if ($service > 3) {
+                    $col = 3;
                 } else {
                     $col = 6;
                 }
             } else {
-                if ($service > 2) {
-                    $col = 4;
+                if ($service > 1) {
+                    $col = 3;
                 } else {
                     $col = 6;
                 }

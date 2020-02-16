@@ -21,6 +21,7 @@ class CreateCategoriesTable extends Migration
             $table->string('shortDescription', 500)->nullable();
             $table->boolean('accessibilityWithoutAuthentication')->nullable();
             $table->string('externalUrl', 250)->nullable();
+            $table->integer('serial')->nullable();
             $table->boolean('isVisible')->nullable();
             $table->timestamps();
         });

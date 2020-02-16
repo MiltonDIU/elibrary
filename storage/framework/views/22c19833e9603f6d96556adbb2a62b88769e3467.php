@@ -1,12 +1,12 @@
-@extends('layouts.master')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <a href="{{ url('admin/category/create') }}" class="btn btn-success btn-sm"
+                    <a href="<?php echo e(url('admin/category/create')); ?>" class="btn btn-success btn-sm"
                        title="Add New Category">
                         <i class="fa fa-plus" aria-hidden="true"></i> Add New
                     </a>
@@ -22,49 +22,44 @@
                                 <th>Image</th>
                                 <th>Category Sort</th>
                                 <th>Accessibility Without Authentication</th>
-                                <th>Serial for front end</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($category as $item)
+                            <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
-                                    <td>{{ $loop->iteration or $item->id }}</td>
-                                    <td>{{ $item->itemCategory }}</td>
-                                    <td>{{ $item->image }}</td>
-                                    <td>{{ $item->itemCategoryShort }}</td>
+                                    <td><?php echo e(isset($loop->iteration) ? $loop->iteration : $item->id); ?></td>
+                                    <td><?php echo e($item->itemCategory); ?></td>
+                                    <td><?php echo e($item->image); ?></td>
+                                    <td><?php echo e($item->itemCategoryShort); ?></td>
+                                    <td>
+                                        <?php if($item->accessibilityWithoutAuthentication==1): ?>
+                                            <?php echo e("Yes"); ?>
 
-                                    <td>
-                                        @if($item->accessibilityWithoutAuthentication==1)
-                                            {{"Yes"}}
-                                        @else
-                                            {{"No"}}
-                                        @endif
+                                        <?php else: ?>
+                                            <?php echo e("No"); ?>
+
+                                        <?php endif; ?>
                                     </td>
                                     <td>
-                                        @if($item->serial==1)
-                                          1
-                                        @else
-                                            0
-                                        @endif
-                                    </td>
-                                    <td>
-                                        <a href="{{ url('/admin/category/' . $item->id) }}" title="View Category">
+                                        <a href="<?php echo e(url('/admin/category/' . $item->id)); ?>" title="View Category">
                                             <button class="btn btn-info btn-sm"><i class="fa fa-eye"
                                                                                    aria-hidden="true"></i> View
                                             </button>
                                         </a>
-                                        <a href="{{ url('/admin/category/' . $item->id . '/edit') }}"
+                                        <a href="<?php echo e(url('/admin/category/' . $item->id . '/edit')); ?>"
                                            title="Edit Category">
                                             <button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o"
                                                                                       aria-hidden="true"></i> Edit
                                             </button>
                                         </a>
 
-                                        <form method="POST" action="{{ url('/admin/category' . '/' . $item->id) }}"
+                                        <form method="POST" action="<?php echo e(url('/admin/category' . '/' . $item->id)); ?>"
                                               accept-charset="UTF-8" style="display:inline">
-                                            {{ method_field('DELETE') }}
-                                            {{ csrf_field() }}
+                                            <?php echo e(method_field('DELETE')); ?>
+
+                                            <?php echo e(csrf_field()); ?>
+
                                             <button type="submit" class="btn btn-danger btn-sm"
                                                     title="Delete Category"
                                                     onclick="return confirm(&quot;Confirm; delete?;&quot;)"><i
@@ -73,7 +68,7 @@
                                         </form>
                                     </td>
                                 </tr>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
                         </table>
                     </div>
@@ -83,15 +78,15 @@
         </div>
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@push('styles')
-    <link rel="stylesheet" type="text/css" href="{{url('assets/datatable/css/material.min.css')}}"/>
-    <link rel="stylesheet" type="text/css" href="{{url('assets/datatable/css/dataTables.material.min.css')}}"/>
-@endpush
-@push('scripts')
-    <script type="text/javascript" src="{{url('assets/datatable/js/datatables.min.js')}}"></script>
-    <script type="text/javascript" src="{{url('assets/datatable/js/dataTables.material.min.js')}}"></script>
+<?php $__env->startPush('styles'); ?>
+    <link rel="stylesheet" type="text/css" href="<?php echo e(url('assets/datatable/css/material.min.css')); ?>"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo e(url('assets/datatable/css/dataTables.material.min.css')); ?>"/>
+<?php $__env->stopPush(); ?>
+<?php $__env->startPush('scripts'); ?>
+    <script type="text/javascript" src="<?php echo e(url('assets/datatable/js/datatables.min.js')); ?>"></script>
+    <script type="text/javascript" src="<?php echo e(url('assets/datatable/js/dataTables.material.min.js')); ?>"></script>
     <script>
         $(document).ready(function () {
             $('#dataTables').DataTable({
@@ -107,5 +102,6 @@
             });
         });
     </script>
-@endpush
-@include('notification.notify')
+<?php $__env->stopPush(); ?>
+<?php echo $__env->make('notification.notify', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

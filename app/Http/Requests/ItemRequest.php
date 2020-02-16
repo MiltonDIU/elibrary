@@ -69,7 +69,7 @@ class ItemRequest extends FormRequest
         if (($this->request->get('item_standard_number_id')>0) or ($this->request->get('itemStandardNumberValue') != null)) {
             $rules['itemStandardNumberValue'] = 'max:20|min:10|required|unique:items,itemStandardNumberValue,' . $id;
         }
-        $rules['itemStandardNumberValue2'] = 'nullable|max:20|min:10|unique:items,itemStandardNumberValue2,' . $id;
+        $rules['itemStandardNumberValue2'] = 'nullable|max:20|min:5|unique:items,itemStandardNumberValue2,' . $id;
 
         $rules['publicationYear'] = 'numeric|min:1700|max:2040';
         $rules['placeOfPublication'] = 'max:100';

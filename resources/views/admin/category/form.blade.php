@@ -71,6 +71,16 @@
 </div>
 
 
+<div id="serial" class="form-group {{ $errors->has('serial') ? 'has-error' : ''}}">
+    <label for="externalUrl" class="col-md-4 control-label">{{ 'Serial for front end view' }}</label>
+    <div class="col-md-3">
+        <input class="form-control" name="serial" type="number" id="serial"
+               value="{{ $category->serial or ''}}">
+        {!! $errors->first('serial', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+
+
 <div class="form-group">
     <div class="col-md-offset-4 col-md-4">
         <input class="btn btn-primary" type="submit" value="{{ $submitButtonText or 'Create' }}">
