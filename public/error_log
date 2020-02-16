@@ -1,0 +1,54 @@
+[29-Sep-2019 05:08:55 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:09:13 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:09:16 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:09:17 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:09:17 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:09:17 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:09:17 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:09:17 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:09:17 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:09:17 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:09:17 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:09:17 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:09:17 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:09:17 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:09:17 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:09:17 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:09:17 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:09:17 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:09:17 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:09:17 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:09:17 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:09:17 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:09:17 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:09:17 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:09:17 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:09:17 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/oldarchives/public_html/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[29-Sep-2019 05:39:12 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function php_info() in /home/oldarchives/public_html/public/index.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/oldarchives/public_html/public/index.php on line 2
+[29-Sep-2019 05:39:18 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function php_info() in /home/oldarchives/public_html/public/index.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/oldarchives/public_html/public/index.php on line 2
+[29-Sep-2019 05:39:22 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function php_info() in /home/oldarchives/public_html/public/index.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/oldarchives/public_html/public/index.php on line 2
+[29-Sep-2019 05:39:24 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function php_info() in /home/oldarchives/public_html/public/index.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/oldarchives/public_html/public/index.php on line 2
+[29-Sep-2019 05:39:25 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function php_info() in /home/oldarchives/public_html/public/index.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/oldarchives/public_html/public/index.php on line 2
+[29-Sep-2019 05:39:25 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function php_info() in /home/oldarchives/public_html/public/index.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/oldarchives/public_html/public/index.php on line 2
+[29-Sep-2019 05:39:25 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function php_info() in /home/oldarchives/public_html/public/index.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/oldarchives/public_html/public/index.php on line 2

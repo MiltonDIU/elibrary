@@ -1,0 +1,21 @@
+.card-body{padding-top: 10px;}
+
+.invalid-feedback, help-block {
+    color: red;
+    font-weight: bold
+}
+
+.self-comment {
+    float: right
+}
+
+.self-comment .todo-tasklist-item {
+    border-right: #3faba4 2px solid;
+    border-left: 0px;
+}
+
+.clear {
+    width: 100%;
+    float: left;
+    padding: 10px;
+}
