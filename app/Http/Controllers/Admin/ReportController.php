@@ -26,6 +26,15 @@ class ReportController extends Controller
     public function index(){
         return view('admin.report.index');
     }
+    public function downloadHistory(){
+        $users = User::withCount('items')->has('items', '>', 0)->orderBy('items_count', 'desc')->get();
+
+return view('admin.report.download_history',compact('users'));
+
+    }
+
+
+
     public function uploadStatistics(Request $request, $items=null){
         $dateSelect = $request->input('date_select');
         $roles  = Role::find(4);

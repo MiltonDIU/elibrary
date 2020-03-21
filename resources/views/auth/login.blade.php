@@ -8,7 +8,7 @@
         <div class="form-group">
             <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
             <label class="control-label visible-ie8 visible-ie9">Username</label>
-            <input id="email" type="text" autocomplete="off" placeholder="Email or Username"
+            <input id="email" type="text" autocomplete="off" placeholder="Email or Username or ID"
                    class="form-control form-control-solid placeholder-no-fix {{ $errors->has('email') ? ' is-invalid' : '' }}"
                    name="email" value="{{ old('email') }}" required autofocus>
             @if ($errors->has('email'))
@@ -37,6 +37,10 @@
 
             <a class="forget-password" href="{{ route('password.request') }}">
                 {{ __('Forgot Your Password?') }}
+            </a>
+            <br>
+             <a style="margin-top:-5px" class="forget-password" target="_blank" href="https://drive.google.com/file/d/1RjnFCJkMEeH1M261a7HDg4tqIHT51RVx/view?usp=sharing">
+                {{ __('Login Tutorial') }}
             </a>
         </div>
         <div class="create-account">

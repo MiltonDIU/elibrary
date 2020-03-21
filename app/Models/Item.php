@@ -57,5 +57,8 @@ class Item extends Model
     {
         return $this->hasMany('App\Models\ItemUser');
     }
-
+    public function users()
+    {
+        return $this->belongsToMany('App\User');
+    }
 }

@@ -82,6 +82,8 @@ Route::group([
             Route::post('/report/upload-statistics', 'Admin\\ReportController@uploadStatistics');
             Route::get('/report/download-statistics', 'Admin\\ReportController@downloadStatistics');
             Route::post('/report/download-statistics', 'Admin\\ReportController@downloadStatistics');
+
+            Route::get('/report/download-history', 'Admin\\ReportController@downloadHistory');
         });
 
         Route::get('/', function () {
@@ -130,4 +132,3 @@ Route::get('/departments', 'FrontEndController@departments');
 Route::get('/authors', 'FrontEndController@authors');
 Route::get('/services', 'FrontEndController@services');
 */
-

@@ -5,64 +5,85 @@
 
         <div class="col-md-3">
             <!-- BEGIN WIDGET THUMB -->
+            <a href="{{url('admin/users')}}">
             <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
                 <h4 class="widget-thumb-heading">Total Users</h4>
-                <div class="widget-thumb-wrap">
-                    <i class="widget-thumb-icon bg-green icon-users"></i>
-                    <div class="widget-thumb-body">
-                        <span class="widget-thumb-body-stat count" data-counter="counterup">{{$users}}</span>
+
+                    <div class="widget-thumb-wrap">
+                        <i class="widget-thumb-icon bg-green icon-users"></i>
+                        <div class="widget-thumb-body">
+                            <span class="widget-thumb-body-stat count" data-counter="counterup">{{$users}}</span>
+                        </div>
                     </div>
-                </div>
+
+
             </div>
+            </a>
             <!-- END WIDGET THUMB -->
         </div>
         <div class="col-md-3">
             <!-- BEGIN WIDGET THUMB -->
+            <a href="{{url('admin/item')}}">
             <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
                 <h4 class="widget-thumb-heading">Total Items</h4>
+
                 <div class="widget-thumb-wrap">
                     <i class="widget-thumb-icon bg-red icon-layers"></i>
                     <div class="widget-thumb-body">
                         <span class="widget-thumb-body-stat count" data-counter="counterup">{{$items}}</span>
                     </div>
                 </div>
+
             </div>
+            </a>
             <!-- END WIDGET THUMB -->
         </div>
         <div class="col-md-3">
             <!-- BEGIN WIDGET THUMB -->
+            <a href="{{url('admin/department')}}">
             <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
                 <h4 class="widget-thumb-heading">Departments</h4>
+
                 <div class="widget-thumb-wrap">
                     <i class="widget-thumb-icon bg-purple icon-screen-desktop"></i>
                     <div class="widget-thumb-body">
                         <span class="widget-thumb-body-stat count">{{$department}}</span>
                     </div>
                 </div>
+
             </div>
+            </a>
             <!-- END WIDGET THUMB -->
         </div>
         <div class="col-md-3">
+            <a href="{{url('admin/service-category')}}">
             <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
                 <h4 class="widget-thumb-heading">Services</h4>
+
                 <div class="widget-thumb-wrap">
                     <i class="widget-thumb-icon bg-blue icon-bar-chart"></i>
                     <div class="widget-thumb-body">
                         <span class="widget-thumb-body-stat count">{{$categories}}</span>
                     </div>
                 </div>
+
             </div>
+            </a>
         </div>
         <div class="col-md-3">
+            <a href="{{url('admin/report/download-history')}}">
             <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
                 <h4 class="widget-thumb-heading">Downloads</h4>
+
                 <div class="widget-thumb-wrap">
                     <i class="widget-thumb-icon bg-purple icon-cloud-download"></i>
                     <div class="widget-thumb-body">
                         <span class="widget-thumb-body-stat count">{{$downloads}}</span>
                     </div>
                 </div>
+
             </div>
+            </a>
         </div>
         <div class="col-md-3">
             <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
@@ -76,15 +97,19 @@
             </div>
         </div>
         <div class="col-md-3">
+            <a href="{{url('admin/sister-concern')}}">
             <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
                 <h4 class="widget-thumb-heading">Concern</h4>
+
                 <div class="widget-thumb-wrap">
                     <i class="widget-thumb-icon bg-green icon-bar-chart"></i>
                     <div class="widget-thumb-body">
                         <span class="widget-thumb-body-stat count">{{$concern}}</span>
                     </div>
                 </div>
+
             </div>
+            </a>
         </div>
     </div>
     <div class="clear"></div>

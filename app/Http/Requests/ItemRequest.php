@@ -67,7 +67,7 @@ class ItemRequest extends FormRequest
 
         $rules['pdfUrl'] = 'mimes:docx,doc,pdf,ppt,mp4|max:1024000';
         if (($this->request->get('item_standard_number_id')>0) or ($this->request->get('itemStandardNumberValue') != null)) {
-            $rules['itemStandardNumberValue'] = 'max:20|min:10|required|unique:items,itemStandardNumberValue,' . $id;
+            $rules['itemStandardNumberValue'] = 'max:20|min:5|required|unique:items,itemStandardNumberValue,' . $id;
         }
         $rules['itemStandardNumberValue2'] = 'nullable|max:20|min:5|unique:items,itemStandardNumberValue2,' . $id;
 
