@@ -74,7 +74,7 @@ class ItemRequest extends FormRequest
         $rules['publicationYear'] = 'numeric|min:1700|max:2040';
         $rules['placeOfPublication'] = 'max:100';
         $rules['authors_ids'] = 'required|array';
-
+dd($rules);
         return $rules;
     }
 
@@ -82,7 +82,7 @@ class ItemRequest extends FormRequest
     {
         return [
             'authors_ids.required'=>'Select author name',
-            'publicationYear.max'=>'The publication year may not be less than 2019'.date('Y'),
+            'publicationYear.max'=>'The publication year may not be less than '.date('Y'),
             'pdfUrl.max'=>'The upload file  must be less than 100MB',
 
         ];
