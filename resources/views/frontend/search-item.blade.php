@@ -27,3 +27,6 @@
         </div>
     </div>
 @endsection
+
+
+@include('notification.notify')

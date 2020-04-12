@@ -74,7 +74,6 @@ class ItemRequest extends FormRequest
         $rules['publicationYear'] = 'numeric|min:1700|max:2040';
         $rules['placeOfPublication'] = 'max:100';
         $rules['authors_ids'] = 'required|array';
-dd($rules);
         return $rules;
     }
 
