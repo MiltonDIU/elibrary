@@ -13,6 +13,15 @@
         {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
+
+<div class="form-group {{ $errors->has('download') ? 'has-error' : ''}}">
+    <label for="download" class="col-md-4 control-label">{{ 'Maximum Download Books' }}</label>
+    <div class="col-md-6">
+        <input class="form-control" name="download" type="number" id="download" value="{{ $user->download or ''}}">
+        {!! $errors->first('download', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+
 <div class="form-group {{ $errors->has('password') ? 'has-error' : ''}}">
     <label for="password" class="col-md-4 control-label">{{ 'Password' }}</label>
     <div class="col-md-6">

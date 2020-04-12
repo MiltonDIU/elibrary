@@ -64,7 +64,7 @@ class UsersController extends Controller
         $role_id = $request->input('role_id');
         //$serviceRole = DB::table('role_service')->where('role_id', $role_id)->pluck('service_id')->toArray();
         $serviceRole = $request->input('services');
-        $requestData = $request->only('displayName', 'email');
+        $requestData = $request->only('displayName', 'email','download');
         $password = $request->input('password');
         $requestData['password'] = Hash::make($password);
         $user = User::create($requestData);

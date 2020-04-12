@@ -20,6 +20,7 @@
                               <th>Name</th>
                               <th>Email</th>
                               <th>Roles</th>
+                              <th>Download Limit</th>
                               <th>Actions</th>
                           </tr>
                           </thead>
@@ -35,7 +36,7 @@
                                           {{$role->name}},
                                       @endforeach
                                   </td>
-
+                                  <td>{{ $user->download }}</td>
 
                                   <td>
                                       <a href="{{ url('/admin/users/' . $user->id) }}" title="View User">

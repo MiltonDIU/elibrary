@@ -33,7 +33,7 @@
                                           {{$role->name}},
                                       @endforeach
                                   </td>
-                                  <td>{{ $user->items_count }}</td>
+                                  <td>{{ $user->items_count }} out of {{ $user->download }}</td>
                               </tr>
                           @endforeach
                           </tbody>
