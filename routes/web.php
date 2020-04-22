@@ -21,6 +21,8 @@ Auth::routes();
 //});
 
 
+Route::post('users', 'Admin\\UsersController@index'); // item search in backend
+
 Route::post('/author/new', 'Admin\\AuthorController@ajaxPost');
 Route::post('/author-store', 'Admin\\AuthorController@authorStore');
 Route::post('/publisher-store', 'Admin\\PublisherController@publisherStore');

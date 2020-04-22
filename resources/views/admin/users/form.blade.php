@@ -24,7 +24,7 @@
 
 
 <div class="form-group {{ $errors->has('status') ? 'has-error' : ''}}">
-    <label for="isPublished" class="col-md-4 control-label">{{ 'Is Active ' }}</label>
+    <label for="status" class="col-md-4 control-label">{{ 'Is Active ' }}</label>
     <div class="col-md-6">
         <div class="mt-radio-inline">
             <label class="mt-radio">
@@ -39,6 +39,26 @@
             </label>
         </div>
         {!! $errors->first('status', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+
+
+<div class="form-group {{ $errors->has('verified') ? 'has-error' : ''}}">
+    <label for="verified" class="col-md-4 control-label">{{ 'Is Verified User ' }}</label>
+    <div class="col-md-6">
+        <div class="mt-radio-inline">
+            <label class="mt-radio">
+                {{ Form::radio('verified', 1,isset($user->verified)?(($user->verified==1)?true:false):true) }}
+                Yes
+                <span></span>
+            </label>
+            <label class="mt-radio">
+                {{ Form::radio('verified', 0, isset($user->verified)?(($user->verified==0)?true:false):false) }}
+                No
+                <span></span>
+            </label>
+        </div>
+        {!! $errors->first('verified', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
 

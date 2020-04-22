@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Item;
 use App\Models\Role;
 use App\Models\ServiceCategory;
 use App\OrdinaryTrait;
@@ -22,12 +23,107 @@ class UsersController extends Controller
      * @return \Illuminate\View\View
      */
     use OrdinaryTrait;
+    protected $users;
 
-    public function index()
+    public function __construct(User $user)
     {
-        $users = User::with('role')->get();
-        return view('admin.users.index', compact('users'));
+        $this->users = $user;
     }
+
+//    public function index()
+//    {
+//        $users = User::with('role')->get();
+//        return view('admin.users.index', compact('users'));
+//    }
+
+    public function index(Request $request)
+    {
+
+        $data2 = array();
+        $data3 = array();
+
+        DB::enableQueryLog();
+        DB::connection()->enableQueryLog();
+
+        if ($request['q']) {
+
+
+            $data = $request['q'];
+
+            $users = User::where('displayName', 'like', '%' . $data . '%')
+                ->orWhereHas('sisterConcern', function ($q) use ($data) {
+                    $q->where('concernName', 'like', '%' . $data . '%');
+                })
+                ->orWhereHas('sisterConcern', function ($q) use ($data) {
+                    $q->where('emailDomain', 'like', '%' . $data . '%');
+                })
+                ->orWhere('username','like', '%' . $data . '%')
+                ->orWhere('email','like', '%' . $data . '%')
+                ->orWhere('mobile','like', '%' . $data . '%')
+                ->orWhere('deptName','like', '%' . $data . '%')
+                ->orWhere('designation','like', '%' . $data . '%')
+                ->orWhere('diu_id','like', '%' . $data . '%')
+                ->paginate(20)->setPath('');
+
+
+
+            $query = DB::getQueryLog();
+            $query = end($query);
+            $queryTime = $query['time'];
+            $pagination = $users->appends(array(
+                'q' => $request['q']
+            ));
+
+            $queryTime = $queryTime / 1000;
+            if ($request['show']==1){
+                $data2['show']='show';
+            }
+            if ($request['destroy']==1){
+                $data2['destroy']='destroy';
+            }
+            if ($request['edit']==1){
+                $data2['edit']='edit';
+            }
+
+            $data3['slug']=$request['slug'];
+            Session::flash('controller', $data3);
+            Session::flash('viewIndex', $data2);
+//            return $users;
+            return view('admin.users.getUser', compact('users', 'queryTime'));
+        } else {
+            if ($request->ajax()) {
+                $users = $this->users->latest('created_at')->paginate(20);
+                $query = DB::getQueryLog();
+                $query = end($query);
+                $queryTime = $query['time'];
+                $queryTime = $queryTime / 1000;
+                if ($request['show']==1){
+                    $data2['show']='show';
+                }
+                if ($request['destroy']==1){
+                    $data2['destroy']='destroy';
+                }
+                if ($request['edit']==1){
+                    $data2['edit']='edit';
+                }
+                $data3['slug']=$request['slug'];
+                Session::flash('controller', $data3);
+                Session::flash('viewIndex', $data2);
+
+                return view('admin.users.getUser', compact('users', 'queryTime'));
+            } else {
+                $users = $this->users->latest('created_at')->paginate(20);
+                $query = DB::getQueryLog();
+                $query = end($query);
+                $queryTime = $query['time'];
+                $queryTime = $queryTime / 1000;
+                print_r($queryTime);
+               // dd($users.'3rd');
+                return view('admin.users.index', compact('users', 'queryTime'));
+            }
+        }
+    }
+
 
     /**
      * Show the form for creating a new resource.

@@ -142,6 +142,7 @@ class LoginController extends Controller
         $requestData ['password'] = $data['password'];
         $requestData ['imageBase64'] = null;
         $requestData ['status'] = 1;
+        $requestData ['verified'] = 1;
         $requestData ['loginStatus'] = 1;
         $user = User::create($requestData);
         return $user;
@@ -169,6 +170,7 @@ class LoginController extends Controller
         $requestData ['password'] = $data['password'];
         $requestData ['imageBase64'] = $result['studentPhoto'];
         $requestData ['status'] = 1;
+        $requestData ['verified'] = 1;
         $requestData ['loginStatus'] = 1;
         $user = User::create($requestData);
         return $user;
