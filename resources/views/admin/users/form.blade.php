@@ -22,6 +22,28 @@
     </div>
 </div>
 
+
+<div class="form-group {{ $errors->has('status') ? 'has-error' : ''}}">
+    <label for="isPublished" class="col-md-4 control-label">{{ 'Is Active ' }}</label>
+    <div class="col-md-6">
+        <div class="mt-radio-inline">
+            <label class="mt-radio">
+                {{ Form::radio('status', 1,isset($user->status)?(($user->status==1)?true:false):true) }}
+                Yes
+                <span></span>
+            </label>
+            <label class="mt-radio">
+                {{ Form::radio('status', 0, isset($user->status)?(($user->status==0)?true:false):false) }}
+                No
+                <span></span>
+            </label>
+        </div>
+        {!! $errors->first('status', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+
+
+
 <div class="form-group {{ $errors->has('password') ? 'has-error' : ''}}">
     <label for="password" class="col-md-4 control-label">{{ 'Password' }}</label>
     <div class="col-md-6">

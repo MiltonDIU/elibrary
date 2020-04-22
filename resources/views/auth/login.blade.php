@@ -8,7 +8,7 @@
         <div class="form-group">
             <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
             <label class="control-label visible-ie8 visible-ie9">Username</label>
-            <input id="email" type="text" autocomplete="off" placeholder="Email or Username or ID"
+            <input id="email" type="text" autocomplete="off" placeholder="Email or Student/Employee ID"
                    class="form-control form-control-solid placeholder-no-fix {{ $errors->has('email') ? ' is-invalid' : '' }}"
                    name="email" value="{{ old('email') }}" required autofocus>
             @if ($errors->has('email'))
