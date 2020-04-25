@@ -160,7 +160,7 @@ class UsersController extends Controller
         $role_id = $request->input('role_id');
         //$serviceRole = DB::table('role_service')->where('role_id', $role_id)->pluck('service_id')->toArray();
         $serviceRole = $request->input('services');
-        $requestData = $request->only('displayName', 'email','download','status');
+        $requestData = $request->only('displayName', 'email','download','status','verified');
         $password = $request->input('password');
         $requestData['password'] = Hash::make($password);
         $user = User::create($requestData);
@@ -242,10 +242,13 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
 
-        $requestData = $request->all();
+        $requestData =$request->only('displayName', 'email','download','status','verified');
         $user = User::findOrFail($id);
-        $password = $request->input('password');
-        $requestData['password'] = Hash::make($password);
+        if ($request->input('password')!=null){
+            $password = $request->input('password');
+            $requestData['password'] = Hash::make($password);
+        }
+
         $user->update($requestData);
         Session::flash('flash_message', 'User updated!');
         $services = $request->input('services');

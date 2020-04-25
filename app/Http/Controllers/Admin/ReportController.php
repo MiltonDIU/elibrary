@@ -33,6 +33,24 @@ return view('admin.report.download_history',compact('users'));
 
     }
 
+//view individual download file
+
+    public function downloadHistoryUser($id){
+
+        $items = ItemUser::where('user_id',$id)->get();
+
+
+//
+//        $items  = ItemUser::where('user_id',$id)
+//        ->groupBy('item_id')
+//            ->selectRaw('count(*) as total, item_id')
+//            ->orderBy('item_id','desc')
+//            ->get()->take(5);
+        $user = User::withCount('items')->has('items', '>', 0)->where('id',$id)->first();
+
+        return view('admin.report.download_history_user',compact('items','user'));
+
+    }
 
 
     public function uploadStatistics(Request $request, $items=null){

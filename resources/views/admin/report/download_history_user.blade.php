@@ -5,6 +5,10 @@
   <div class="row">
       <div class="col-md-12">
           <div class="card">
+
+              <div class="card-header">
+                  <h4 class="title">{{$user->displayName}}({{$user->items_count}})</h4>
+              </div>
               <div class="card-body">
 
                   <br/>
@@ -14,34 +18,39 @@
                           <thead>
                           <tr>
                               <th>Sl.No</th>
-                              <th>Name</th>
-                              <th>Email</th>
-                              <th>Roles</th>
-                              <th>Number of Download</th>
-
+                              <th>Title of Books</th>
+                              <th>Department</th>
+                              <th>Service</th>
+                              <th>Date </th>
                           </tr>
                           </thead>
                           <tbody>
-                          @foreach($users as $user)
+                          @foreach($items as $item)
                               <tr>
                                   <td>
-    {{ $loop->iteration or $user->id }}
+    {{ $loop->iteration or $item->id }}
 
                                   </td>
                                   <td>
-                                      <a href="{{url('admin/report/download-history',$user->id)}}">
-                                          {{ $user->displayName }}
-                                      </a>
+                                      {{$item->item->title}}
 
                                      </td>
-                                  <td>{{ $user->email }}</td>
 
                                   <td>
-                                      @foreach($user->role as $role)
-                                          {{$role->name}},
+                                    @foreach($item->item->department as $dep)
+
+                                          <small class="badge badge-success"> {{$dep->deptShortName}}</small>
                                       @endforeach
                                   </td>
-                                  <td>{{ $user->items_count }} out of {{ $user->download }}</td>
+                                  <td>
+                                      {{$item->item->category->itemCategory}}
+                                  </td>
+
+                                  <td>
+                                      {{ date_create($item->created_at)->format('d-m-Y, h:i:s A')}}
+
+                                  </td>
+
                               </tr>
                           @endforeach
                           </tbody>

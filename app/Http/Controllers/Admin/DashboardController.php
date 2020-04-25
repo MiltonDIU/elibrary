@@ -48,6 +48,7 @@ class DashboardController extends Controller
         }
 
         $users = User::all()->count();
+//        $active_users = User::where('is_active','1')->count();
         $items = Item::all()->count();
         $department = Department::all()->count();
         $categories = Category::all()->count();

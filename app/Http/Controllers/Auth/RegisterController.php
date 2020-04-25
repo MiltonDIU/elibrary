@@ -208,7 +208,12 @@ registration.',
 
     public function roleService($request, $user)
     {
+
         if ($request->member_type === "Guest") {
+            $user->role()->attach(6);
+            $selectedService = Role::findOrFail(6)->service()->pluck('service_id')->toArray();
+            $user->service()->attach($selectedService);
+        }elseif ($request->member_type==="Concern"){
             $user->role()->attach(7);
             $selectedService = Role::findOrFail(7)->service()->pluck('service_id')->toArray();
             $user->service()->attach($selectedService);

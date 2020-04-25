@@ -86,6 +86,7 @@ Route::group([
             Route::post('/report/download-statistics', 'Admin\\ReportController@downloadStatistics');
 
             Route::get('/report/download-history', 'Admin\\ReportController@downloadHistory');
+            Route::get('/report/download-history/{id}', 'Admin\\ReportController@downloadHistoryUser');
         });
 
         Route::get('/', function () {
