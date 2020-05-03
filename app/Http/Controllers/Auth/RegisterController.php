@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RegistrationRequest;
 use App\Models\Role;
 use App\Models\SisterConcern;
 use App\OrdinaryTrait;
@@ -92,7 +93,7 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function register(Request $request)
+    public function register(RegistrationRequest $request)
     {
 
         try {

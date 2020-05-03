@@ -66,12 +66,111 @@
                    class="form-control" name="password_confirmation">
         </div>
         <div class="form-actions">
-            <a href="{{ url('login')}}" id="register-back-btn" class="btn green btn-outline">Login</a>
-            <button type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-right">Submit</button>
+           <button type="submit" id="register-submit-btn" class="btn btn-success login-button">Submit</button>
         </div>
+        <div class="create-account">
+            <p>
+                <a href="{{ url('login')}}" id="register-back-btn" >Back to Login</a>
+                <a  target="_blank" href="https://drive.google.com/file/d/1RjnFCJkMEeH1M261a7HDg4tqIHT51RVx/view?usp=sharing">
+                    {{ __('Login Tutorial') }}
+                </a>
+                <a href="#" data-toggle="modal" data-target="#registration">Registration Tutorials</a>
+
+            </p>
+        </div>
+
     </form>
+    <!-- Modal -->
+    <div class="modal fade" id="registration" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h3 style="text-align: center"> Sign in process for Student’s/Employee of DIU</h3>
+                    <p>
+                        If you are a student/employee of Daffodil International University then there is no need
+                        registration in this system, you just log in through your id and password of student
+                        portal/employee id and password of ERP and click to the login button and access all services
+                        what you need of e-Library.
+                    </p>
+                    <p style="color: red; ">
+                        Without Students/Employee of Daffodil International
+                        University all, you need to create an account and submit the
+                        registration process.
+                    </p>
+                    <hr>
+                    <h3>The registration process for Daffodil Family Members</h3>
+                    <p>
+                        If you are a member of the Daffodil family then you
+                        need to create an account and submit the registration
+                        process.
+                    </p>
+
+                    <h4>Just follow these 10 steps and login successfully !!!</h4>
+                    <ol>
+                        <li>Open the registration form (Click to New Account)</li>
+                        <li>Enter your details in the designated box.</li>
+                        <li>Select “concern member” in the member type box.</li>
+                        <li>Select your Concern carefully.</li>
+                        <li>Chose an appropriate display name and a secure password</li>
+                        <li>All field are complete then click Submit</li>
+                        <li>Check your email (Which you gave at the time of registration) and verify your email</li>
+                        <li>Your organization&#39;s head or responsible person will receive an email, this
+                            person confirming that you can log in our system</li>
+                        <li>Once he confirms, a notification will come to your email, after which you
+                            will get all access to the e-library.</li>
+                        <li>Now you log in with your email address and password.</li>
+                    </ol>
+                    <hr>
+                    <h3> The registration process for Outsider of Daffodil Family
+                    </h3>
+                    <span style="color: red; text-align: center"> If you log in as a guest</span>
+
+                    <h4> Then follow these steps and login successfully !!!</h4>
+                    <ol>
+                        <li>Open the registration form (Click to New Account)</li>
+                        <li>Enter your details in the designated box.</li>
+                        <li>Select “Guest” in the member type box.</li>
+                        <li>Chose an appropriate display name and a secure password</li>
+                        <li>All field are complete then click Submit</li>
+                        <li>Check your email (Which you gave at the time of registration) and verify your email</li>
+                        <li>After your verification, the library person will receive a notification, this person
+                            confirming that you can log in our system</li>
+                        <li>Once he confirms, a notification will come to your email, after which you
+                            will get all access to the e-library.</li>
+                        <li>Now you log in with your email address and password (Which you gave at the time of
+                            registration)</li>
+                    </ol>
+                    <hr>
+                    <p>
+                        (N.B- When you submit then check your mail which you use there and click to
+                        activation link and wait to admin approval. When an admin approves your
+                        request then another mail will come that your user is active).
+                        <br>
+                        <span style="color: red">
+                             If you notice that no
+                        email has been sent to your email inbox, check the spam box
+                        </span>
+                    </p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 @endsection
 @include('notification.notify')
+@push('styles')
+    <style>
+        .login-button{width: 100%}
+        .create-account p a{width: 80%; text-align: left; line-height: 25px}
+    </style>
+@endpush
 @push('scripts')
     <script type="text/javascript">
         function show(concern) {

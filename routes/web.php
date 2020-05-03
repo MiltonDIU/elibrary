@@ -12,13 +12,18 @@
 */
 use App\Models\Item;
 Auth::routes();
-//
-//Route::get('/clear-cache', function() {
-//    Artisan::call('cache:clear');
-//    Artisan::call('view:clear');
-//    Artisan::call('config:cache');
-//    return '<h1>Cache facade value cleared</h1>';
-//});
+
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+    echo "1<br>";
+    Artisan::call('view:clear');
+    echo "1<br>";
+    Artisan::call('config:cache');
+    echo "1<br>";
+    Artisan::call('config:clear');
+    echo "1<br>";
+    return '<h1>Cache facade value cleared</h1>';
+});
 
 
 Route::post('users', 'Admin\\UsersController@index'); // item search in backend

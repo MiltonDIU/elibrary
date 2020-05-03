@@ -188,9 +188,8 @@
                     <td align="center" class="section-img">
                         <a href="http://library.daffodilvarsity.edu.bd/"
                            style="display: block; border-style: none !important; border: 0 !important;">
-                            <img width="510" border="0" style="display: block; margin: 60px 0px 20px 0px; width: 270px;"
-                                 src="http://library.daffodilvarsity.edu.bd/files/logo_web_0.png" alt="Library,DIU"/>
 
+e-Library, Daffodil International University
                         </a>
                     </td>
                 </tr>

@@ -31,7 +31,7 @@
 
         {!! Form::select('publisher_id',$publishers,null,['class' => 'form-control','placeholder'=>'Please Select','id'=>'publisher_id','required' => 'required']) !!}
 
-            {!! $errors->first('publisher_id', '<p class="help-block">:message</p>') !!}
+        {!! $errors->first('publisher_id', '<p class="help-block">:message</p>') !!}
 
 
     </div>
@@ -246,10 +246,13 @@
             $('.js-example-basic-multiple').select2();
             $('#publisher_id').select2({
                 tags: true,
+                minimumInputLength: 2,
                 tokenSeparators: [","],
+
             });
             $('#author_ids').select2({
                 tags: true,
+                minimumInputLength:4,
                 tokenSeparators: [","],
             });
 
@@ -321,4 +324,4 @@
             color: green;
         }
     </style>
-    @endpush
+@endpush

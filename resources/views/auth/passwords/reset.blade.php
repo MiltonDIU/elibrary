@@ -63,3 +63,4 @@
                     </form>
 
 @endsection
+@include('notification.notify')
