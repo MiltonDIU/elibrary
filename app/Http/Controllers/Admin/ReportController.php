@@ -38,21 +38,19 @@ return view('admin.report.download_history',compact('users'));
     public function downloadHistoryUser($id){
 
         $items = ItemUser::where('user_id',$id)->get();
-
-
-//
-//        $items  = ItemUser::where('user_id',$id)
-//        ->groupBy('item_id')
-//            ->selectRaw('count(*) as total, item_id')
-//            ->orderBy('item_id','desc')
-//            ->get()->take(5);
         $user = User::withCount('items')->has('items', '>', 0)->where('id',$id)->first();
-
         return view('admin.report.download_history_user',compact('items','user'));
 
     }
-
-
+    public function highestDownloadBooks(){
+        $books = Item::withCount('users')->has('users', '>',0)->orderBy('users_count', 'desc')->get();
+        return view('admin.report.highest_download_books',compact('books'));
+    }
+    public function highestDownloadBooksWithUserList($id){
+        $users = ItemUser::where('item_id',$id)->get();
+        $item = Item::withCount('users')->has('users', '>', 0)->where('id',$id)->first();
+        return view('admin.report.highest_download_books_with_user_list',compact('item','users'));
+    }
     public function uploadStatistics(Request $request, $items=null){
         $dateSelect = $request->input('date_select');
         $roles  = Role::find(4);

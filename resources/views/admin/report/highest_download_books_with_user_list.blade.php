@@ -3,10 +3,12 @@
 @section('content')
 
     <div class="row">
-        <div class="col-md-12"><a href="{{url('admin/report/highest-download-books')}}">List of Download Highest Book </a> </div>
-
         <div class="col-md-12">
             <div class="card">
+
+                <div class="card-header">
+                    <h4 class="title">{{$item->title}}({{$item->users_count}})</h4>
+                </div>
                 <div class="card-body">
 
                     <br/>
@@ -17,10 +19,7 @@
                             <tr>
                                 <th>Sl.No</th>
                                 <th>Name</th>
-                                <th>Email</th>
-                                <th>Roles</th>
-                                <th>Number of Download</th>
-
+                                <th>Date and Time</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -31,19 +30,10 @@
 
                                     </td>
                                     <td>
-                                        <a href="{{url('admin/report/download-history',$user->id)}}">
-                                            {{ $user->displayName }}
-                                        </a>
+                                        {{$user->user->displayName}}
 
                                     </td>
-                                    <td>{{ $user->email }}</td>
-
-                                    <td>
-                                        @foreach($user->role as $role)
-                                            {{$role->name}},
-                                        @endforeach
-                                    </td>
-                                    <td>{{ $user->items_count }} out of {{ $user->download }}</td>
+                                    <td>{{$user->created_at}}</td>
                                 </tr>
                             @endforeach
                             </tbody>
@@ -74,7 +64,7 @@
 
                     }
                 ],
-                "order": [[0, 'asc']]
+                "order": [[0, 'desc']]
 
             });
         });

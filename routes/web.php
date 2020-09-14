@@ -96,6 +96,9 @@ Route::group([
 
             Route::get('/report/download-history', 'Admin\\ReportController@downloadHistory');
             Route::get('/report/download-history/{id}', 'Admin\\ReportController@downloadHistoryUser');
+
+            Route::get('/report/highest-download-books/', 'Admin\\ReportController@highestDownloadBooks');
+            Route::get('/report/highest-download-books-with-user-list/{id}', 'Admin\\ReportController@highestDownloadBooksWithUserList');
         });
 
         Route::get('/', function () {
