@@ -111,6 +111,21 @@
             </div>
             </a>
         </div>
+        <div class="col-md-3">
+            <a href="{{url('admin/issue-tracking')}}">
+                <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
+                    <h4 class="widget-thumb-heading">Number of Issue Tracking</h4>
+
+                    <div class="widget-thumb-wrap">
+                        <i class="widget-thumb-icon bg-green icon-note"></i>
+                        <div class="widget-thumb-body">
+                            <span class="widget-thumb-body-stat count">{{$issueTracking}}</span>
+                        </div>
+                    </div>
+
+                </div>
+            </a>
+        </div>
     </div>
         <div class="row widget-row">
         <div class="col-md-3">

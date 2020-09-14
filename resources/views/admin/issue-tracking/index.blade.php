@@ -24,6 +24,7 @@
                                 <th>Assign To</th>
                                 <th>Assign By</th>
                                 <th>Number of Message</th>
+                                <th>Date and Time</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -51,6 +52,7 @@
                                         @endif
                                     </span>
                                     </td>
+                                    <td>{{$issue->created_at}}</td>
                                     <td>
                                         <a href="{{ url('/admin/issue-tracking/' . $issue->id) }}"
                                            title="View IssueTracking">
@@ -110,7 +112,7 @@
 
 
                                                         <div class="form-group">
-                                                            <div class="col-md-offset-4 col-md-4">
+                                                            <div class="col-md-4">
                                                                 <input class="btn btn-primary" type="submit"
                                                                        value="Assign To">
                                                             </div>
