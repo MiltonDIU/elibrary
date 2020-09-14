@@ -112,6 +112,35 @@
             </a>
         </div>
     </div>
+        <div class="row widget-row">
+        <div class="col-md-3">
+            <!-- BEGIN WIDGET THUMB -->
+                <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
+                    <h4 class="widget-thumb-heading">Current Month Total Users</h4>
+                    <div class="widget-thumb-wrap">
+                        <i class="widget-thumb-icon bg-green icon-users"></i>
+                        <div class="widget-thumb-body">
+                            <span class="widget-thumb-body-stat count" data-counter="counterup">{{$current_months_user}}</span>
+                        </div>
+                    </div>
+                </div>
+            <!-- END WIDGET THUMB -->
+        </div>
+        <div class="col-md-3">
+                            <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
+                    <h4 class="widget-thumb-heading">Current Month Total Downloads</h4>
+
+                    <div class="widget-thumb-wrap">
+                        <i class="widget-thumb-icon bg-purple icon-cloud-download"></i>
+                        <div class="widget-thumb-body">
+                            <span class="widget-thumb-body-stat count">{{$current_months_download}}</span>
+                        </div>
+                    </div>
+
+                </div>
+                    </div>
+    </div>
+
     <div class="clear"></div>
     <div class="row">
         <div class="col-md-12">
@@ -262,6 +291,79 @@
         </div>
         
     </div>
+    
+    
+    
+       <div class="row">
+        <div class="col-md-5 ">
+            <div class="card">
+                <div class="card-body">
+                    <h4>Month wise User Registration</h4>
+                    <div class="table-responsive">
+                        <table class="table table-borderless file-upload">
+                            <thead>
+                            <tr>
+                                <th>Month</th>
+                                <th>Total Users</th>
+                            
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($monty_wise_users as $key => $user)
+                                <tr>
+                                    <td>{{$key}}</td>
+                                    <td>{{$monty_wise_users[$key]->count()}}</td>
+                                </tr>
+                            @endforeach
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5 col-md-offset-2">
+            <div class="card">
+                <div class="card-body">
+                    <h4>Month wise Book Downloads</h4>
+                    <div class="table-responsive">
+                        <table class="table table-borderless file-upload">
+                            <thead>
+                            <tr>
+                                
+                                <th>Month</th>
+                                <th>Total Downloads</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                     
+
+
+ @foreach($month_wise_downloads as $key => $download)
+                                <tr>
+                                    <td>{{$key}}</td>
+                                    <td>{{$month_wise_downloads[$key]->count()}}</td>
+                                </tr>
+                            @endforeach
+                 
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+
+
+
 @endsection
 @push('style_plugins')
     <link rel="stylesheet" href="{{url('assets/admin/amcharts_3.21.13/amcharts/plugins/export/export.css')}}"

@@ -2,18 +2,17 @@
 <div class="form-group {{ $errors->has('title') ? 'has-error' : ''}}">
     <label for="title" class="col-md-4 control-label">{{ 'Title' }}</label>
     <div class="col-md-6">
-        {!! Form::text('title', null, ['class' => 'form-control','maxlength'=>'500']) !!}
+        {!! Form::text('title', null, ['class' => 'form-control', 'id'=>'title','maxlength'=>'500']) !!}
         {!! $errors->first('title', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
 <div class="form-group {{ $errors->has('authors_ids') ? 'has-error' : ''}}">
     <label for="authors" class="col-md-4 control-label">{{ 'Authors' }}</label>
     <div class="col-md-6">
-        {!! Form::select('authors_ids[]', $authors, isset($selected_author)?$selected_author:null, ['class' => 'form-control','id'=>'author_ids', 'multiple' => 'multiple']) !!}
+        {!! Form::select('authors_ids[]', $authors, isset($selected_author)?$selected_author:null, ['class' => 'form-control','id'=>'author_ids', 'multiple' => 'multiple', 'onpaste'=>false]) !!}
         {!! $errors->first('authors_ids', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
-
 <div class="form-group {{ $errors->has('edition') ? 'has-error' : ''}}">
     <label for="edition" class="col-md-4 control-label">{{ 'Edition' }}</label>
     <div class="col-md-6">
@@ -31,7 +30,7 @@
 
         {!! Form::select('publisher_id',$publishers,null,['class' => 'form-control','placeholder'=>'Please Select','id'=>'publisher_id','required' => 'required']) !!}
 
-        {!! $errors->first('publisher_id', '<p class="help-block">:message</p>') !!}
+            {!! $errors->first('publisher_id', '<p class="help-block">:message</p>') !!}
 
 
     </div>
@@ -248,13 +247,13 @@
                 tags: true,
                 minimumInputLength: 2,
                 tokenSeparators: [","],
-
+                
             });
-            $('#author_ids').select2({
-                tags: true,
-                minimumInputLength:4,
-                tokenSeparators: [","],
-            });
+            // $('#author_ids').select2({
+            //     tags: true,
+            //      minimumInputLength:5,
+            //     tokenSeparators: [","],
+            // });
 
         });
         document.getElementById("item-form").onkeypress = function (e) {
@@ -313,6 +312,48 @@
             });
         });
     </script>
+     <!-- Script -->
+     
+     <!--ajax loading for authors name-->
+    <script type="text/javascript">
+    // CSRF Token
+    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+    $(document).ready(function(){
+      $( "#author_ids" ).select2({
+        ajax: { 
+          url: "{{route('author.getAuthors')}}",
+          type: "post",
+          dataType: 'json',
+          delay: 250,
+          data: function (params) {
+            return {
+              _token: CSRF_TOKEN,
+              search: params.term // search term
+            };
+          },
+          processResults: function (response) {
+            return {
+              results: response
+            };
+          },
+          cache: true
+        },
+        tags:true,
+        minimumInputLength:2,
+        tokenSeparators: [","],
+        placeholder:'Type Author Name, '
+      });
+
+    });
+    
+    $(document).ready(function(){
+   $('.select2-search__field').on("cut copy paste",function(e) {
+      e.preventDefault();
+   });
+});
+
+    
+    </script>
 @endpush
 
 @push('styles')
@@ -324,4 +365,4 @@
             color: green;
         }
     </style>
-@endpush
+    @endpush

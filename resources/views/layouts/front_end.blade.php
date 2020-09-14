@@ -8,7 +8,7 @@
 <!--<![endif]-->
 
 <!-- Head BEGIN -->
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<head><meta http-equiv="Content-Type">
     
     <title>eLibrary</title>
 
@@ -18,7 +18,7 @@
     <meta content="e-libarary,DIU,Daffodil International University" name="description">
     <meta content="e-library Daffodil International University ,DIU" name="keywords">
     <meta content="DIU" name="author">
-    <link rel="shortcut icon" href="favicon.ico">
+     <link rel="icon" type="image/png" href="{{url('favicon.ico')}}"/>
     <!-- Fonts START -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all"
           rel="stylesheet" type="text/css">

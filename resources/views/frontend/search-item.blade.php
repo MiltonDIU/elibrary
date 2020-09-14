@@ -28,5 +28,4 @@
     </div>
 @endsection
 
-
 @include('notification.notify')

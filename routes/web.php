@@ -17,13 +17,17 @@ Route::get('/clear-cache', function() {
     Artisan::call('cache:clear');
     echo "1<br>";
     Artisan::call('view:clear');
-    echo "1<br>";
+     echo "1<br>";
     Artisan::call('config:cache');
-    echo "1<br>";
+     echo "1<br>";
     Artisan::call('config:clear');
-    echo "1<br>";
+     echo "1<br>";
     return '<h1>Cache facade value cleared</h1>';
 });
+
+
+Route::get('/admin/select','Admin\ItemController@select2');
+Route::post('/select/getAuthors/','Admin\ItemController@getAuthors')->name('author.getAuthors');
 
 
 Route::post('users', 'Admin\\UsersController@index'); // item search in backend

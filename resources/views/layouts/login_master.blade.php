@@ -31,11 +31,10 @@
     <link href="{{url('assets/admin/global/css/plugins.min.css')}}" rel="stylesheet" type="text/css"/>
 
 
-
+    @stack('styles')
     <link href="{{url('assets/admin/pages/css/login.min.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{url('assets/admin/custom.css')}}" rel="stylesheet" type="text/css"/>
-    @stack('styles')
-    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="icon" type="image/png" href="{{url('favicon.ico')}}"/>
 </head>
 <script>
     window.Laravel = <?php echo json_encode([

@@ -9,7 +9,7 @@
     <meta content="Preview page of Metronic Admin Theme #1 for blank page layout" name="description" />
     <meta content="" name="author" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+<link rel="icon" type="image/png" href="{{url('favicon.ico')}}"/>
 
 <link href="{{url('assets/admin/global/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{url('assets/admin/global/plugins/simple-line-icons/simple-line-icons.min.css')}}" rel="stylesheet" type="text/css" />

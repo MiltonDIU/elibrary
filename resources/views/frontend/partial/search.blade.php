@@ -1,14 +1,21 @@
 <div class="col-md-12">
-    {!! Form::open(['url' => '#', 'class' => 'form-horizontal content-search-view2', 'files' => true]) !!}
+    {!! Form::open(['url' => '#', 'class' => 'form-horizontal content-search-view2 search-form', 'files' => true]) !!}
     <div class="input-group col-md-12">
-        {!! Form::text('q', null, ['class' => 'form-control','placeholder'=>'Keyword Search...', 'id'=>'searchText', 'required' => 'required']) !!}
+        {!! Form::text('q', null, ['class' => 'form-control ','placeholder'=>'Keyword Search...', 'id'=>'searchText', 'required' => 'required']) !!}
         {!! $errors->first('q', '<p class="help-block">:message</p>') !!}
-        <span class="input-group-btn">
-            <button class="btn btn-default" type="button" id="getItem">Search</button>
-        </span>
+        <!--<span class="input-group-btn">-->
+        <!--    <button class="btn btn-default" type="button" id="getItem">Search</button>-->
+        <!--</span>-->
     </div>
     {!! Form::close() !!}
 </div>
+@push('style')
+    <style>
+        .search-form{background:#7374BF;}
+    </style>
+@endpush
+
+
 @push('script')
     <script type="text/javascript">
 

@@ -186,10 +186,9 @@
                 <tr>
                     <!-- ======= logo ======= -->
                     <td align="center" class="section-img">
-                        <a href="http://library.daffodilvarsity.edu.bd/"
-                           style="display: block; border-style: none !important; border: 0 !important;">
-
-e-Library, Daffodil International University
+                        <a href="https://daffodilvarsity.edu.bd"
+                           style="display: block; text-decoration: none; border-style: none !important; border: 0 !important;">
+                            <h2>e-Library, Daffodil International University</h2>
                         </a>
                     </td>
                 </tr>
@@ -252,7 +251,6 @@ e-Library, Daffodil International University
                                     style="color: #ffffff; font-size: 14px; font-family: 'Varela Round', sans-serif;"
                                     class="cta-text">
                                     <div style=" line-height: 24px;">
-                                        <?php /*?><a href="{{ url('register/verify/'.$verification_code) }}" style="font-size: 17px; color: #ffffff; text-decoration: none;"></a><?php */?>
 
                                         <a href="{{ url('register/verify',$verification_code)}}"
                                            style="font-size: 17px; color: #ffffff; text-decoration: none;">
@@ -273,7 +271,10 @@ e-Library, Daffodil International University
                 </tr>
 
                 <tr>
-                    <td height="30" style="font-size: 30px; line-height: 30px;">&nbsp;</td>
+                    <td height="auto" style="font-size: 14px; line-height: 15px; color: red; padding: 10px">
+                        If activation link is not work then copy and past link in the URL:
+                      {{"https://archives.daffodilvarsity.edu.bd/register/verify/$verification_code"}}
+                    </td>
                 </tr>
             </table>
         </td>

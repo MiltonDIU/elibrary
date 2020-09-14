@@ -14,8 +14,6 @@
         <th>Name</th>
         <th>Email</th>
         <th>Roles</th>
-        <th>Is Active</th>
-        <th>Is Verified</th>
         <th>Download Limit</th>
         @if(Session::has('viewIndex'))
         <th>Actions</th>
@@ -34,9 +32,6 @@
                     {{$role->name}},
                 @endforeach
             </td>
-
-            <td>{{ $user->status==1?"Yes":"No" }}</td>
-            <td>{{ $user->verified==1?"Yes":"No" }}</td>
             <td>{{ $user->download }}</td>
             <!--just call static function with id-->
             @if(Session::has('viewIndex'))

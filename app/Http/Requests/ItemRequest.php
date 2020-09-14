@@ -65,7 +65,7 @@ class ItemRequest extends FormRequest
             $rules['uploadImageUrl'] = 'image|mimes:jpeg,jpg,JPG,png|max:1024';
         }
 
-        $rules['pdfUrl'] = 'mimes:docx,doc,pdf,ppt,mp4|max:1024000';
+        $rules['pdfUrl'] = 'mimes:docx,doc,pdf,ppt,mp4,zip,rar|max:1024000';
         if (($this->request->get('item_standard_number_id')>0) or ($this->request->get('itemStandardNumberValue') != null)) {
             $rules['itemStandardNumberValue'] = 'max:20|min:5|required|unique:items,itemStandardNumberValue,' . $id;
         }
@@ -74,6 +74,7 @@ class ItemRequest extends FormRequest
         $rules['publicationYear'] = 'numeric|min:1700|max:2040';
         $rules['placeOfPublication'] = 'max:100';
         $rules['authors_ids'] = 'required|array';
+
         return $rules;
     }
 
@@ -81,7 +82,7 @@ class ItemRequest extends FormRequest
     {
         return [
             'authors_ids.required'=>'Select author name',
-            'publicationYear.max'=>'The publication year may not be less than '.date('Y'),
+            'publicationYear.max'=>'The publication year may not be less than 2019'.date('Y'),
             'pdfUrl.max'=>'The upload file  must be less than 100MB',
 
         ];

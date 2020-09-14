@@ -117,7 +117,7 @@ class ItemController extends Controller
                 $query = end($query);
                 $queryTime = $query['time'];
                 $queryTime = $queryTime / 1000;
-                print_r($queryTime);
+                // print_r($queryTime);
                 return view('admin.item.index', compact('items', 'queryTime'));
             }
         }
@@ -165,7 +165,7 @@ class ItemController extends Controller
         $publishers = Publisher::pluck('publisherName','id');
         $itemCategories = Category::pluck('itemCategory', 'id');
         $itemStandardNumbers = ItemStandardNumber::pluck('itemStandardName','id');
-        $authors = Author::pluck('authorName','id');
+        $authors = Author::all()->pluck('authorName','id')->take(10);
         $departments = Department::pluck('departmentName','id');
         $semesters = Semester::pluck('name','id');
         $supervisors = Supervisor::pluck('name','id');
@@ -305,9 +305,12 @@ class ItemController extends Controller
         $publishers = Publisher::pluck('publisherName','id');
         $itemCategories = Category::pluck('itemCategory', 'id');
         $itemStandardNumbers = ItemStandardNumber::pluck('itemStandardName','id');
-        $authors = Author::pluck('authorName','id');
+        // $authors = Author::pluck('authorName','id')->take(50);
         $departments = Department::pluck('departmentName','id');
         $selected_author = $item->author()->pluck('author_id')->toArray();
+        $authors = $item->author()->pluck('authorName','author_id');
+        // $authors = (object)array_merge((array)$authors,(array)$selected_author2); 
+      
         $selected_department = $item->department()->pluck('department_id')->toArray();
         $semesters = Semester::pluck('name','id');
         $supervisors = Supervisor::pluck('name','id');
@@ -414,4 +417,34 @@ class ItemController extends Controller
         Session::flash('notification',$notification);
         return redirect('admin/item');
     }
+    
+    
+    public function select2(){
+      return view('admin.item.select2');
+   }
+
+   /*
+   AJAX request
+   */
+   public function getAuthors(Request $request){
+
+      $search = $request->search;
+
+      if($search == ''){
+         $employees = Author::orderby('authorName','asc')->select('id','authorName')->limit(50)->get();
+      }else{
+         $employees = Author::orderby('authorName','asc')->select('id','authorName')->where('authorName', 'like', '%' .$search . '%')->limit(50)->get();
+      }
+      $response = array();
+      foreach($employees as $employee){
+         $response[] = array(
+              "id"=>$employee->id,
+              "text"=>$employee->authorName
+         );
+      }
+
+      echo json_encode($response);
+      exit;
+   }
+
 }

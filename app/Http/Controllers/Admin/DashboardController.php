@@ -11,10 +11,21 @@ use App\User;
 use Carbon\Carbon;
 use DB;
 use App\Models\Role;
+use App\Models\ItemUser;
 class DashboardController extends Controller
 {
     public function index()
     {
+
+$monty_wise_users = User::select('id', 'created_at')
+    ->get()
+                ->groupBy(function($date) {
+                return Carbon::parse($date->created_at)->format('M Y'); // grouping by years and its month
+});
+$month_wise_downloads = ItemUser::select('id', 'created_at')
+    ->get()->groupBy(function($date) {
+      return Carbon::parse($date->created_at)->format('M Y'); // grouping by years and its month
+});
 
         $rand = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f');
         $items = Item::all();
@@ -48,13 +59,15 @@ class DashboardController extends Controller
         }
 
         $users = User::all()->count();
-//        $active_users = User::where('is_active','1')->count();
         $items = Item::all()->count();
         $department = Department::all()->count();
         $categories = Category::all()->count();
         $concern = SisterConcern::all()->count();
         $downloads = DB::table('item_user')->get()->count();
         $views = DB::table('item_views')->get()->count();
+
+        $current_months_user = User::whereMonth('created_at', date('m'))->count();
+        $current_months_download = ItemUser::whereMonth('created_at', date('m'))->count();
 
         $itemUsers = User::withCount('item')->having('item_count','>',0)->orderBy('item_count','desc')->get();
 
@@ -72,7 +85,7 @@ class DashboardController extends Controller
         }])->having('item_count','>',0)->orderBy('item_count','desc')->get();
 
 //dd($departmentsArr);
-        return view('admin.dashboard', compact('users', 'items', 'department', 'categories', 'concern', 'views', 'downloads','itemUsers','itemToday','itemCurrentMonth','itemPreviousMonth'))
+        return view('admin.dashboard', compact('users', 'monty_wise_users', 'month_wise_downloads', 'items','current_months_download','current_months_user', 'department', 'categories', 'concern', 'views', 'downloads','itemUsers','itemToday','itemCurrentMonth','itemPreviousMonth'))
             ->with('visitor', json_encode($results))
             ->with('departments', json_encode($departmentsArr));
     }

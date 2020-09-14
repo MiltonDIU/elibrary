@@ -65,6 +65,7 @@ class HomeController extends Controller
 
     public function getDownload(Request $request)
     {
+        
         $id = $request->input('id');
         $slug = $request->input('slug');
         $item = Item::where('id', $id)->where('slug', $slug)->first();
@@ -107,9 +108,28 @@ if ($download->download > $download->items_count){
     );
     Session::flash('notification',$notification);
     return redirect()->back();
-}
+        
+        
+        //  $id = $request->input('id');
+        // $slug = $request->input('slug');
+        // $item = Item::where('id', $id)->where('slug', $slug)->first();
+        // $file = public_path() . "/uploads/item/$item->pdfUrl";
+        // if(file_exists($file)){
+        //     $ext = pathinfo($item->pdfUrl, PATHINFO_EXTENSION);
+        //     $data['item_id'] = $id;
+        //     $data['user_id'] = Auth::id();
+        //     ItemUser::create($data);
+        //     return Response::download($file, "$item->title.$ext");
+        // }else{
+        //     $notification = array(
+        //         'message' => "Your file has been not created! please contact with library.",
+        //         'alert-type' => 'success'
+        //     );
+        //     Session::flash('notification',$notification);
+        //     return redirect()->back();
+         }
+    }
 
-}
     public function avatarUpdate(Request $request){
         $id = Auth::id();
         $user = User::findOrFail($id);
