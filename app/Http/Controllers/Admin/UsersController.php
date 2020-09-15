@@ -242,7 +242,7 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
 
-        $requestData =$request->only('displayName', 'email','download','status','verified');
+        $requestData =$request->only('displayName', 'email','download','status','verified','isAdmin');
         $user = User::findOrFail($id);
         if ($request->input('password')!=null){
             $password = $request->input('password');

@@ -42,6 +42,25 @@
     </div>
 </div>
 
+<div class="form-group {{ $errors->has('isAdmin') ? 'has-error' : ''}}">
+    <label for="status" class="col-md-4 control-label">{{ 'Is Admin ' }}</label>
+    <div class="col-md-6">
+        <div class="mt-radio-inline">
+            <label class="mt-radio">
+                {{ Form::radio('isAdmin', 1,isset($user->isAdmin)?(($user->isAdmin==1)?true:false):true) }}
+                Yes
+                <span></span>
+            </label>
+            <label class="mt-radio">
+                {{ Form::radio('isAdmin', 0, isset($user->isAdmin)?(($user->isAdmin==0)?true:false):false) }}
+                No
+                <span></span>
+            </label>
+        </div>
+        {!! $errors->first('isAdmin', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+
 
 <div class="form-group {{ $errors->has('verified') ? 'has-error' : ''}}">
     <label for="verified" class="col-md-4 control-label">{{ 'Is Verified User ' }}</label>
