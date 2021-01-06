@@ -17,7 +17,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-
 $monty_wise_users = User::select('id', 'created_at')
     ->get()
                 ->groupBy(function($date) {
@@ -78,9 +77,11 @@ $month_wise_downloads = ItemUser::select('id', 'created_at')
         }])->having('item_count','>',0)->orderBy('item_count','desc')->get();
 
         $itemPreviousMonth = User::withCount(['item' => function ($query) {
-            $query->whereMonth('created_at', Carbon::now()->subMonth()->month);
+            $query
+                ->whereMonth('created_at', date("m",strtotime("-1 month")))
+                ->whereYear('created_at',date("Y",strtotime("-1 month")))
+            ;
         }])->having('item_count','>',0)->orderBy('item_count','desc')->get();
-
         $itemCurrentMonth = User::withCount(['item' => function ($query) {
             $query->where('created_at', '>=', Carbon::now()->startOfMonth());
             $query->where('created_at', '<=', Carbon::now()->endOfMonth());
